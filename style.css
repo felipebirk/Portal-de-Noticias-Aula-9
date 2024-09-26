@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --brand-color-light: #4F82E6; /* Cor ligeiramente diferente */
+    --brand-color-dark: #1C40B3; /* Cor ligeiramente diferente */
+    --bg-color: #111827; /* Cor de fundo um pouco diferente */
+    --stroke-color: #2A3A4D; /* Cor de borda ajustada */
+    --text-color-primary: #E2E8F0;
+    --text-color-secondary: #A0AEC0;
+  
+    --font-family: 'Roboto', 'sans-serif'; /* Fonte levemente diferente */
+    --h1: 700 25px/130% var(--font-family); /* Pequena mudança no peso e tamanho */
+    --h2: 700 17px/135% var(--font-family); /* Pequena mudança no tamanho */
+    --h3: 700 15px/135% var(--font-family); /* Pequena mudança no tamanho */
+    --text-span: 500 13px/150% var(--font-family); /* Pequeno ajuste no tamanho */
+    --text: 400 15px/135% var(--font-family); /* Pequena mudança no tamanho */
+    --text-sm: 400 13px/150% var(--font-family); /* Pequena mudança no tamanho */
+  }
+  
+  body {
+    font: var(--text);
+    color: var(--text-color-primary);
+    background-color: var(--bg-color);
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  a:hover {
+    color: var(--brand-color-light);
+  }
+  
+  h1, h2, h3 {
+    font: inherit;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  .container {
+    max-width: 1280px;
+    padding-inline: 28px; /* Ajuste pequeno no padding */
+    margin-inline: auto;
+  }
+  
+  main {
+    margin-block: 40px;
+    row-gap: 80px;
+    column-gap: 32px;
+    grid-template-columns: 2fr 1.4fr;
+  
+    grid-template-areas:
+      "featured featured"
+      "weekly weekly"
+      "ai aside";
+  }
+  
+  .content-tag {
+    display: inline-block;
+    background-color: var(--brand-color-dark);
+    padding: 4px 10px; /* Pequeno ajuste no padding */
+    border-radius: 6px; /* Ajustei o border-radius */
+    font: 500 11px/1.2 var(--font-family); /* Pequeno ajuste no tamanho da fonte */
+    text-transform: uppercase;
+    letter-spacing: 0.05em; /* Pequena mudança no espaçamento entre letras */
+    color: var(--text-color-primary);
+    box-shadow: 0px 3px 14px rgba(2, 6, 23, 0.3); /* Ajuste na sombra */
+  }
+  
+  #primary {
+    padding-block: 18px; /* Pequeno ajuste no padding */
+  
+    div {
+      display: flex;
+      align-items: center;
+      gap: 10px; /* Ajuste no gap */
+    }
+  
+    div:nth-child(2) {
+      margin-inline: auto;
+    }
+  
+    div:nth-child(3) {
+      justify-self: flex-end;
+    }
+  }
+  
+  #secondary {
+    padding-block: 12px; /* Ajuste no padding */
+    border: solid 1px var(--stroke-color);
+    border-inline: none;
+    justify-content: space-between;
+  }
+  
+  section header {
+    border-top: 1px solid var(--stroke-color);
+    padding-block: 10px 22px; /* Ajuste no padding */
+    font: var(--text-span);
+  
+    a {
+      justify-self: end;
+      align-items: center;
+      gap: 10px; /* Ajuste no gap */
+  
+      span {
+        background-image: url(../assets/icons/ArrowRight.svg);
+        width: 16px;
+        height: 16px;
+      }
+  
+      &:hover span {
+        background-image: url(../assets/icons/ArrowRight-hover.svg);
+      }
+    }
+  }
+  
+  #featured {
+    grid-area: featured;
+    img {
+      height: 100%;
+      object-fit: cover;
+      border-radius: 6px; /* Ajuste no border-radius */
+    }
+  
+    .card {
+      border-radius: 6px; /* Ajuste no border-radius */
+      position: relative;
+      overflow: hidden;
+  
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        top: 50%;
+        background: linear-gradient(
+          180deg,
+          transparent 0%,
+          #0A101A 100% /* Ajustei o fundo */
+        );
+      }
+  
+      figcaption {
+        position: absolute;
+        bottom: 0;
+        padding: 20px; /* Ajuste no padding */
+  
+        &:has(.text-lg) {
+          padding: 14px; /* Ajuste no padding */
+        }
+  
+        h2 {
+          margin-top: 6px; /* Ajuste na margem */
+        }
+      }
+    }
+  }
+  
+  #weekly {
+    grid-area: weekly;
+    &>div {
+      grid-template-columns: repeat(4, 280px); /* Ajustei o tamanho das colunas */
+    }
+    img {
+      height: 150px; /* Ajuste na altura da imagem */
+    }
+  
+    figure {
+      position: relative;
+  
+      .content-tag {
+        position: absolute;
+        top: 6px;
+        left: 6px; /* Pequeno ajuste no posicionamento */
+      }
+    }
+  
+    p {
+      margin-top: 10px; /* Ajuste na margem */
+      font-weight: 700; /* Ajuste no peso da fonte */
+    }
+  }
+  
+  #ai {
+    grid-area: ai;
+    img {
+      width: 180px; /* Ajuste no tamanho */
+      aspect-ratio: 1/1;
+      object-fit: cover;
+    }
+  
+    h3 {
+      margin-block: 6px 5px; /* Ajuste nas margens */
+    }
+  }
+  
+  aside {
+    grid-area: aside;
+  }
+  
+  #more {
+    margin-top: 30px; /* Ajuste na margem */
+    h3 {
+      margin-top: 6px; /* Ajuste na margem */
+    }
+    img {
+      width: 70px; /* Ajuste no tamanho */
+      aspect-ratio: 1/1;
+      object-fit: cover;
+    }
+  }
+  
+  .grid {
+    display: grid;
+  }
+  
+  .grid-flow-col {
+    grid-auto-flow: column;
+  }
+  
+  .grid-cols-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .gap-16 {
+    gap: 14px; /* Ajuste no gap */
+  }
+  
+  .gap-32 {
+    gap: 30px; /* Ajuste no gap */
+  }
+  
+  .text-2xl {
+    font: var(--h1);
+  }
+  
+  .text-xl {
+    font: var(--h2);
+  }
+  
+  .text-lg {
+    font: var(--h3);
+  }
+  
+  .text-sm {
+    font: var(--text-sm);
+  }
+  
